@@ -2,6 +2,7 @@
 
 const button = document.getElementById("honk-btn");
 
+
 const makeSound = function(event){
     event.preventDefault();
     const hornSound = document.getElementById("horn-sound");
@@ -24,6 +25,7 @@ const changeVolume = function(volume){
 
 const changeIcon = function(volume){
     const volumeImage = document.getElementById("volume-image");
+    button.disabled = false;
     if(volume >= 67){
         volumeImage.setAttribute("src","./assets/media/icons/volume-level-3.svg");
         volumeImage.setAttribute("alt","Max Volume");
@@ -39,6 +41,7 @@ const changeIcon = function(volume){
     else{
         volumeImage.setAttribute("src","./assets/media/icons/volume-level-0.svg");
         volumeImage.setAttribute("alt","Muted");
+        button.disabled = true;
     }
 }
 
