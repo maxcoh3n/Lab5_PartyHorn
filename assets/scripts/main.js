@@ -18,6 +18,7 @@ const slider = document.getElementById("volume-slider");
 
 
 const changeVolume = function(volume){
+    const hornSound = document.getElementById("horn-sound");
     hornSound.volume = volume / 100;
 }
 
