@@ -1,7 +1,20 @@
+//Button--------------------------------------------------------
 
-const hornSound = document.getElementById("horn-sound");
+const button = document.getElementById("honk-btn");
+
+const makeSound = function(event){
+    event.preventDefault();
+    const hornSound = document.getElementById("horn-sound");
+    hornSound.play();
+}
+
+button.addEventListener("click", makeSound)
 
 
+//Volume and icons relating to volume---------------------------------------------
+
+const numberInput = document.getElementById("volume-number");
+const slider = document.getElementById("volume-slider");
 
 
 const changeVolume = function(volume){
@@ -30,8 +43,8 @@ const changeIcon = function(volume){
 
 const sliderChange = function(){
     const newValue = document.getElementById("volume-slider").value;
-    const slider = document.getElementById("volume-number");
-    slider.value = newValue;
+    const number = document.getElementById("volume-number");
+    number.value = newValue;
     changeVolume(newValue); 
     changeIcon(newValue);    
 }
@@ -45,26 +58,10 @@ const numberChange = function(){
 }
 
 
-const numberInput = document.getElementById("volume-number");
-
 numberInput.addEventListener("input", numberChange)
-
-const slider = document.getElementById("volume-slider");
-
 slider.addEventListener("input", sliderChange)
 
-
-const makeSound = function(event){
-    event.preventDefault();
-    // alert("sound")
-    hornSound.play();
-}
-
-const button = document.getElementById("honk-btn");
-
-button.addEventListener("click", makeSound)
-
-
+// extra thing that improves UX - pressing enter after entering number does not create sound
 
 const disableEnter = function(event){
     {if(event.key === "Enter")event.preventDefault()}
@@ -73,10 +70,8 @@ const disableEnter = function(event){
 numberInput.addEventListener("keydown", disableEnter)
 slider.addEventListener("keydown", disableEnter)
 
-numberInput.addEventListener("keydown", disableEnter)
 
-
-
+//Sound type--------------------------------------------------------------------------------------
 
 const airHorn = document.getElementById("radio-air-horn-container");
 const carHorn = document.getElementById("radio-car-horn-container");
@@ -85,6 +80,8 @@ const partyHorn = document.getElementById("radio-party-horn-container");
 const changeType = function(img, audio){
     const soundImage = document.getElementById("sound-image");
     soundImage.setAttribute("src",img)
+
+    const hornSound = document.getElementById("horn-sound");
     hornSound.setAttribute("src",audio)
 }
 
