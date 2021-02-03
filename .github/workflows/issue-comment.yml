@@ -14,6 +14,6 @@ jobs:
         id: GifComment
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GIPHY_TOKEN: ${{ secrets.GIPHY_TOKEN }}
+          GIPHY_TOKEN: ${{ secrets.GIPHY_KEY }}
           comment_type: 'gif'
          
