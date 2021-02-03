@@ -1,7 +1,6 @@
 
 const hornSound = document.getElementById("horn-sound");
 
-const button = document.getElementById("honk-btn");
 
 
 
@@ -61,6 +60,8 @@ const makeSound = function(event){
     hornSound.play();
 }
 
+const button = document.getElementById("honk-btn");
+
 button.addEventListener("click", makeSound)
 
 
@@ -72,7 +73,31 @@ const disableEnter = function(event){
 numberInput.addEventListener("keydown", disableEnter)
 slider.addEventListener("keydown", disableEnter)
 
+numberInput.addEventListener("keydown", disableEnter)
 
 
-console.log(hornSound.attributes)
 
+
+const airHorn = document.getElementById("radio-air-horn-container");
+const carHorn = document.getElementById("radio-car-horn-container");
+const partyHorn = document.getElementById("radio-party-horn-container");
+
+const changeType = function(img, audio){
+    const soundImage = document.getElementById("sound-image");
+    soundImage.setAttribute("src",img)
+    hornSound.setAttribute("src",audio)
+}
+
+const airHornClick = function(){
+    changeType("./assets/media/images/air-horn.svg", "./assets/media/audio/air-horn.mp3")
+}
+const carHornClick = function(){
+    changeType("./assets/media/images/car.svg", "./assets/media/audio/car-horn.mp3")
+}
+const partyHornClick = function(){
+    changeType("./assets/media/images/party-horn.svg", "./assets/media/audio/party-horn.mp3")
+}
+
+airHorn.addEventListener("click",airHornClick)
+carHorn.addEventListener("click",carHornClick)
+partyHorn.addEventListener("click",partyHornClick)
